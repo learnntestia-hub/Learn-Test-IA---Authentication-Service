@@ -1,0 +1,176 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Application\\AuthService.Application.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Application\\AuthService.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Application\\AuthService.Application.csproj",
+        "projectName": "AuthService.Application",
+        "projectPath": "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Application\\AuthService.Application.csproj",
+        "packagesPath": "C:\\Users\\Fernando Practicante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Fernando Practicante\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
+                "projectPath": "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Domain\\AuthService.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.28.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            },
+            "Konscious.Security.Cryptography.Argon2": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.15.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.2, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.16.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.15.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.16.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.424/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Domain\\AuthService.Domain.csproj",
+        "projectName": "AuthService.Domain",
+        "projectPath": "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Domain\\AuthService.Domain.csproj",
+        "packagesPath": "C:\\Users\\Fernando Practicante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fernando Practicante\\Documents\\AuthService - LearnTestIA\\src\\AuthService.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Fernando Practicante\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.424/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
