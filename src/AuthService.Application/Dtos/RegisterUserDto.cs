@@ -1,5 +1,6 @@
 using AuthService.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace AuthService.Application.DTOs;
 
@@ -17,5 +18,6 @@ public class RegisterUserDto
     // Se restringe a los valores del Enum para el tipo de cuenta como (Personal, Estudiante o Empresarial)
     [Required] 
     [EnumDataType(typeof(UsageType), ErrorMessage = "El tipo de uso no es válido.")]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public UsageType UsageType { get; set; }
 }
