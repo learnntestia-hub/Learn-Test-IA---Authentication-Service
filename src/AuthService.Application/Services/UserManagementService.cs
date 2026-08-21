@@ -31,7 +31,7 @@ public class UserManagementService(IUserRepository users, IRoleRepository roles)
         }
 
         var role = await roles.GetByNameAsync(roleName)
-                    ?? throw new InvalidOperationException($"Rol {roleName} no encontrado en la base de datos");
+                   ?? throw new InvalidOperationException($"Rol {roleName} no encontrado en la base de datos");
 
         await users.UpdateUserRoleAsync(userId, role.Id);
 
@@ -67,7 +67,7 @@ public class UserManagementService(IUserRepository users, IRoleRepository roles)
             Role = RoleConstants.ADMIN_ROLE,
             IsEmailVerified = u.IsEmailVerified,
             CreatedAt = u.CreatedAt,
-            UpdatedAt = u.UpdatedAt
+            UpdatedAt = u.UpdatedAt,
         }).ToList();
     }
 
@@ -82,13 +82,16 @@ public class UserManagementService(IUserRepository users, IRoleRepository roles)
             Surname = u.Surname,
             Email = u.Email,
             Address = u.Address ?? string.Empty,
+            CodePhone = u.CodePhone ?? string.Empty,
             Phone = u.Phone ?? string.Empty,
             UsageType = u.UsageType,
             AccountStatus = u.AccountStatus,
             Role = RoleConstants.USER_ROLE,
             IsEmailVerified = u.IsEmailVerified,
+            IsActive = u.IsActive,
             CreatedAt = u.CreatedAt,
-            UpdatedAt = u.UpdatedAt
+            UpdatedAt = u.UpdatedAt,
+            LastLogin = u.LastLogin 
         }).ToList();
     }
 
@@ -103,12 +106,15 @@ public class UserManagementService(IUserRepository users, IRoleRepository roles)
             Email = u.Email,
             Address = u.Address ?? string.Empty,
             Phone = u.Phone ?? string.Empty,
+            CodePhone = u.CodePhone ?? string.Empty,
             UsageType = u.UsageType,
             AccountStatus = u.AccountStatus,
             Role = roleName,
             IsEmailVerified = u.IsEmailVerified,
+            IsActive = u.IsActive,
             CreatedAt = u.CreatedAt,
-            UpdatedAt = u.UpdatedAt
+            UpdatedAt = u.UpdatedAt,
+            LastLogin = u.LastLogin
         };
     }
 }
