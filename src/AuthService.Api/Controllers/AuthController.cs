@@ -216,4 +216,92 @@ public class AuthController ( IAuthService authService) : ControllerBase {
         return Ok(result);
     }
 
+    /// <summary>
+    /// Bloquea la cuenta de un usuario.
+    /// </summary>
+    /// <param name="request">DTO con el ID del usuario a bloquear.</param>
+    /// <response code="200">Usuario bloqueado exitosamente.</response>
+    /// <response code="400">Si el UserId no fue proporcionado.</response>
+    /// <response code="404">Si el usuario no existe.</response>
+    [HttpPost("block")]
+    [EnableRateLimiting("ApiPolicy")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<object>> BlockUser([FromBody] BlockUserDto request)
+    {
+        if (string.IsNullOrWhiteSpace(request.UserId))
+        {
+            return BadRequest(new
+            {
+                success = false,
+                message = "El userId es requerido"
+            });
+        }
+
+        try
+        {
+            var response = await authService.BlockUserAsync(request.UserId);
+            
+            return Ok(new
+            {
+                success = true,
+                message = "Usuario bloqueado exitosamente",
+                data = response
+            });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new
+            {
+                success = false,
+                message = ex.Message
+            });
+        }
+    }
+
+    /// <summary>
+    /// Desbloquea la cuenta de un usuario.
+    /// </summary>
+    /// <param name="request">DTO con el ID del usuario a desbloquear.</param>
+    /// <response code="200">Usuario desbloqueado exitosamente.</response>
+    /// <response code="400">Si el UserId no fue proporcionado.</response>
+    /// <response code="404">Si el usuario no existe.</response>
+    [HttpPost("unblock")]
+    [EnableRateLimiting("ApiPolicy")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<object>> UnBlockUser([FromBody] UnBlockUserDto request)
+    {
+        if (string.IsNullOrWhiteSpace(request.UserId))
+        {
+            return BadRequest(new
+            {
+                success = false,
+                message = "El userId es requerido"
+            });
+        }
+
+        try
+        {
+            var response = await authService.UnBlockUserAsync(request.UserId);
+            
+            return Ok(new
+            {
+                success = true,
+                message = "Usuario desbloqueado exitosamente",
+                data = response
+            });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new
+            {
+                success = false,
+                message = ex.Message
+            });
+        }
+    }
+
 }

@@ -156,3 +156,4 @@ C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthServic
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Api\obj\Debug\net8.0\AuthService.Api.pdb
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Api\obj\Debug\net8.0\AuthService.Api.genruntimeconfig.cache
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Api\obj\Debug\net8.0\ref\AuthService.Api.dll
+C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Api\obj\Debug\net8.0\AuthService.Api.sourcelink.json
