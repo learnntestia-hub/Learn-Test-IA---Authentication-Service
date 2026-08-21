@@ -92,7 +92,7 @@ public class AuthService(
     var createdUser = await userRepository.CreateAsync(user);
     SendVerificationEmailInBackground(createdUser, emailVerificationToken);
 
-    return BuildRegisterResponse(createdUser, "Agricultor registrado exitosamente.");
+    return BuildRegisterResponse(createdUser, "Usuario ha sido registrado exitosamente.");
 }
     // --- LOGIN ---
     public async Task<AuthResponseDto> LoginAsync(LoginDto loginDto)
@@ -118,6 +118,21 @@ public class AuthService(
             logger.LogFailedLoginAttempt();
             throw new UnauthorizedAccessException("Credenciales inválidas");
         }
+        
+        if (!user.IsEmailVerified)
+        {
+            logger.LogFailedLoginAttempt();
+            throw new UnauthorizedAccessException("Debe verificar su correo electrónico antes de iniciar sesión.");
+        }
+
+        user.LastLogin = DateTime.UtcNow;
+        await userRepository.UpdateAsync(user);
+
+        // Log de verificación
+        logger.LogInformation("Valor en memoria de LastLogin: {LastLogin}", user.LastLogin);
+
+        var userDetails = MapToUserDetailsDto(user);
+        logger.LogInformation("Valor en DTO de LastLogin: {LastLogin}", userDetails.LastLogin);
 
         logger.LogUserLoggedIn();
 
@@ -142,8 +157,11 @@ public class AuthService(
         if (user == null || user.UserEmail == null)
             return new EmailResponseDto { Success = false, Message = "Token inválido o expirado" };
 
+        user.IsEmailVerified = true;
         user.UserEmail.EmailVerified = true;
         user.IsActive = true;
+        user.UpdatedAt = DateTime.UtcNow;
+        user.AccountStatus = AccountStatus.Active;
         user.UserEmail.EmailVerificationToken = null;
         user.UserEmail.EmailVerificationTokenExpiry = null;
 
@@ -314,7 +332,8 @@ public async Task<EmailResponseDto> ForgotPasswordAsync(ForgotPasswordDto forgot
             IsActive = user.IsActive,
             IsEmailVerified = user.UserEmail?.EmailVerified ?? false,
             CreatedAt = user.CreatedAt,
-            UpdatedAt = user.UpdatedAt
+            UpdatedAt = user.UpdatedAt,
+            LastLogin = user.LastLogin
         };
     }
 
