@@ -17,3 +17,4 @@ C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthServic
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Persistence\obj\Debug\net8.0\AuthService.Persistence.pdb
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Persistence\obj\Debug\net8.0\AuthService.Persistence.genruntimeconfig.cache
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Persistence\obj\Debug\net8.0\ref\AuthService.Persistence.dll
+C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Persistence\obj\Debug\net8.0\AuthService.Persistence.sourcelink.json
