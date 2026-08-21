@@ -13,3 +13,4 @@ C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthServic
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Application\obj\Debug\net8.0\refint\AuthService.Application.dll
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Application\obj\Debug\net8.0\AuthService.Application.pdb
 C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Application\obj\Debug\net8.0\ref\AuthService.Application.dll
+C:\Users\Fernando Practicante\Documents\AuthService - LearnTestIA\src\AuthService.Application\obj\Debug\net8.0\AuthService.Application.sourcelink.json

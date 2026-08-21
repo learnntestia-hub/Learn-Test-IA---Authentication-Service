@@ -343,4 +343,48 @@ public async Task<EmailResponseDto> ForgotPasswordAsync(ForgotPasswordDto forgot
         Name = user.Name,
         Role = user.UserRoles.FirstOrDefault()?.Role?.Name ?? RoleConstants.USER_ROLE
     };
+
+    public async Task<UserBlockResponseDto> BlockUserAsync(string userId)
+{
+    // Cambiar 'users' por 'userRepository'
+    var user = await userRepository.GetByIdAsync(userId) 
+               ?? throw new KeyNotFoundException("Usuario no encontrado");
+
+    user.AccountStatus = AccountStatus.Blocked;
+    user.IsActive = false;
+    user.UpdatedAt = DateTime.UtcNow;
+
+    // Cambiar 'users' por 'userRepository'
+    await userRepository.UpdateAsync(user);
+
+    return new UserBlockResponseDto
+    {
+        Success = true,
+        Message = "Usuario bloqueado exitosamente",
+        Id = user.Id
+    };
+}
+
+public async Task<UserUnBlockResponseDto> UnBlockUserAsync(string userId)
+{
+    // Cambiar 'users' por 'userRepository'
+    var user = await userRepository.GetByIdAsync(userId) 
+               ?? throw new KeyNotFoundException("Usuario no encontrado");
+
+    user.AccountStatus = AccountStatus.Active;
+    user.IsActive = true;
+    user.UpdatedAt = DateTime.UtcNow;
+
+    // Cambiar 'users' por 'userRepository'
+    await userRepository.UpdateAsync(user);
+
+    return new UserUnBlockResponseDto
+    {
+        Success = true,
+        Message = "Usuario desbloqueado exitosamente",
+        Id = user.Id
+    };
+}
+
+    
 }
